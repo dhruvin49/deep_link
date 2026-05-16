@@ -1,36 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Opening Telegram...</title>
+
 <script>
 
-const finalUrl = "https://t.me/+lOthLZQi4R5iZjQ1";
+const telegramAppLink = "tg://join?invite=lOthLZQi4R5iZjQ1";
 
-function redirectUser() {
+const telegramWebLink = "https://t.me/+lOthLZQi4R5iZjQ1";
 
-  const ua = navigator.userAgent;
+const playStoreLink =
+  "https://play.google.com/store/apps/details?id=org.telegram.messenger";
 
-  // Instagram Android
-  if (ua.includes("Instagram") && ua.includes("Android")) {
+function openTelegram() {
 
-    window.location.href =
-      "intent://t.me/+lOthLZQi4R5iZjQ1#Intent;package=org.telegram.messenger;scheme=https;end";
+  // Try opening Telegram app
+  window.location.href = telegramAppLink;
 
-  }
+  // If app not installed → Play Store
+  setTimeout(() => {
 
-  // Instagram iPhone
-  else if (ua.includes("Instagram") && /iPhone|iPad/i.test(ua)) {
+    // If still on page after 2 sec
+    window.location.href = playStoreLink;
 
-    setTimeout(() => {
-      window.location.href = finalUrl;
-    }, 1000);
+  }, 2000);
 
-  }
-
-  // Normal Browser
-  else {
-
-    window.location.href = finalUrl;
-
-  }
 }
 
-window.onload = redirectUser;
+window.onload = openTelegram;
 
 </script>
+
+<style>
+body{
+  background:black;
+  color:white;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  height:100vh;
+  font-family:Arial;
+  text-align:center;
+  padding:20px;
+}
+
+a{
+  color:white;
+}
+</style>
+
+</head>
+
+<body>
+
+<div>
+
+<h2>Opening Telegram...</h2>
+
+<p>
+If nothing happens:
+</p>
+
+<p>
+<a href="https://t.me/+lOthLZQi4R5iZjQ1">
+Open Telegram Link
+</a>
+</p>
+
+</div>
+
+</body>
+</html>
