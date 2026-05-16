@@ -1,40 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Opening...</title>
-
-<style>
-body{
-  background:#000;
-  color:#fff;
-  display:flex;
-  justify-content:center;
-  align-items:center;
-  height:100vh;
-  margin:0;
-  font-family:Arial;
-  text-align:center;
-}
-
-.box{
-  padding:20px;
-}
-
-a{
-  display:inline-block;
-  margin-top:20px;
-  background:white;
-  color:black;
-  padding:14px 24px;
-  border-radius:10px;
-  text-decoration:none;
-  font-weight:bold;
-}
-</style>
-
 <script>
 
 const finalUrl = "https://t.me/+lOthLZQi4R5iZjQ1";
@@ -43,7 +6,7 @@ function redirectUser() {
 
   const ua = navigator.userAgent;
 
-  // Android Instagram
+  // Instagram Android
   if (ua.includes("Instagram") && ua.includes("Android")) {
 
     window.location.href =
@@ -51,12 +14,12 @@ function redirectUser() {
 
   }
 
-  // iPhone Instagram
+  // Instagram iPhone
   else if (ua.includes("Instagram") && /iPhone|iPad/i.test(ua)) {
 
     setTimeout(() => {
       window.location.href = finalUrl;
-    }, 1200);
+    }, 1000);
 
   }
 
@@ -71,21 +34,3 @@ function redirectUser() {
 window.onload = redirectUser;
 
 </script>
-</head>
-
-<body>
-
-<div class="box">
-
-<h2>Opening Link...</h2>
-
-<p>If nothing happens tap below.</p>
-
-<a href="https://t.me/+lOthLZQi4R5iZjQ1" target="_blank">
-Open Now
-</a>
-
-</div>
-
-</body>
-</html>
