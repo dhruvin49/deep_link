@@ -6,36 +6,10 @@
 
 <title>Opening Telegram...</title>
 
-<script>
-
-const telegramAppLink = "tg://join?invite=lOthLZQi4R5iZjQ1";
-
-const telegramWebLink = "https://t.me/+lOthLZQi4R5iZjQ1";
-
-const playStoreLink =
-  "https://play.google.com/store/apps/details?id=org.telegram.messenger";
-
-function openTelegram() {
-
-  // Try opening Telegram app
-  window.location.href = telegramAppLink;
-
-  // If app not installed → Play Store
-  setTimeout(() => {
-
-    // If still on page after 2 sec
-    window.location.href = playStoreLink;
-
-  }, 2000);
-
-}
-
-window.onload = openTelegram;
-
-</script>
-
 <style>
+
 body{
+  margin:0;
   background:black;
   color:white;
   display:flex;
@@ -47,28 +21,78 @@ body{
   padding:20px;
 }
 
-a{
-  color:white;
+.box{
+  max-width:400px;
 }
+
+a{
+  display:inline-block;
+  margin-top:20px;
+  padding:14px 24px;
+  background:white;
+  color:black;
+  border-radius:10px;
+  text-decoration:none;
+  font-weight:bold;
+}
+
 </style>
+
+<script>
+
+const telegramLink = "tg://join?invite=lOthLZQi4R5iZjQ1";
+
+const playStoreLink =
+"https://play.google.com/store/apps/details?id=org.telegram.messenger";
+
+let appOpened = false;
+
+// Detect app switch
+document.addEventListener("visibilitychange", () => {
+
+  if (document.hidden) {
+    appOpened = true;
+  }
+
+});
+
+function openTelegram() {
+
+  // Try opening Telegram
+  window.location.href = telegramLink;
+
+  // Fallback to Play Store ONLY if app didn't open
+  setTimeout(() => {
+
+    if (!appOpened) {
+
+      window.location.href = playStoreLink;
+
+    }
+
+  }, 4000);
+
+}
+
+window.onload = openTelegram;
+
+</script>
 
 </head>
 
 <body>
 
-<div>
+<div class="box">
 
 <h2>Opening Telegram...</h2>
 
 <p>
-If nothing happens:
+If nothing happens, tap below.
 </p>
 
-<p>
-<a href="https://t.me/+lOthLZQi4R5iZjQ1">
-Open Telegram Link
+<a href="tg://join?invite=lOthLZQi4R5iZjQ1">
+Open Telegram
 </a>
-</p>
 
 </div>
 
